@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WrapOS — AI-Powered Wrap Configurator</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav id="nav" aria-label="Primary">
+    <div class="logo">Wrap<span>OS</span></div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <button type="button" class="btn-nav">Start building</button>
+    </div>
+    <button type="button" class="hamburger" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <a href="#features" onclick="toggleMenu()">Features</a>
+    <a href="#how-it-works" onclick="toggleMenu()">How it works</a>
+    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <button type="button" class="btn-primary mobile-menu-cta">Start building</button>
+  </nav>
+</header>
+
+<main id="main">
+<!-- ─── HERO ─── -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <span class="badge">AI-powered wrap configurator</span>
+  <h1 id="hero-heading">Let customers <em>preview</em> their wrap before they buy</h1>
+  <p class="hero-sub">Embeddable quote generator for car wrap shops. Turn visitors into qualified leads with real-time visual previews and instant pricing.</p>
+  <div class="hero-ctas">
+    <button type="button" class="btn-primary">Start building your widget</button>
+    <button type="button" class="btn-ghost">
+      <span class="play-icon">
+        <svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1l8 5-8 5V1z" fill="white"/></svg>
+      </span>
+      View demo
+    </button>
+  </div>
+
+  <!-- Mockup -->
+  <div class="hero-mockup">
+    <div class="mockup-frame">
+      <div class="mockup-bar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-url">app.wrapos.io/configurator</div>
+      </div>
+      <div class="mockup-content">
+        <div class="mockup-car-area">
+          <div class="car-svg-wrap">
+            <svg class="car-svg" width="220" height="120" viewBox="0 0 220 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Car body -->
+              <ellipse cx="110" cy="95" rx="90" ry="12" fill="rgba(0,209,193,0.08)"/>
+              <rect x="25" y="70" width="170" height="28" rx="8" fill="url(#carGrad)" />
+              <path d="M55 70 C65 40 80 32 110 30 C140 32 155 40 165 70Z" fill="url(#carGrad2)" />
+              <!-- Windows -->
+              <path d="M70 68 C75 48 85 42 110 40 C135 42 145 48 150 68Z" fill="rgba(0,177,243,0.3)" stroke="rgba(0,209,193,0.4)" stroke-width="1"/>
+              <line x1="110" y1="40" x2="110" y2="68" stroke="rgba(0,209,193,0.3)" stroke-width="1"/>
+              <!-- Wheels -->
+              <circle cx="68" cy="98" r="14" fill="#1a1a1a" stroke="rgba(0,209,193,0.4)" stroke-width="2"/>
+              <circle cx="68" cy="98" r="7" fill="#0d0f10" stroke="rgba(0,209,193,0.2)" stroke-width="1"/>
+              <circle cx="152" cy="98" r="14" fill="#1a1a1a" stroke="rgba(0,209,193,0.4)" stroke-width="2"/>
+              <circle cx="152" cy="98" r="7" fill="#0d0f10" stroke="rgba(0,209,193,0.2)" stroke-width="1"/>
+              <!-- Headlights -->
+              <ellipse cx="192" cy="79" rx="6" ry="4" fill="rgba(255,240,100,0.6)"/>
+              <ellipse cx="28" cy="79" rx="6" ry="4" fill="rgba(255,100,100,0.4)"/>
+              <defs>
+                <linearGradient id="carGrad" x1="25" y1="70" x2="195" y2="98" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#00D1C1"/>
+                  <stop offset="100%" stop-color="#00888c"/>
+                </linearGradient>
+                <linearGradient id="carGrad2" x1="55" y1="70" x2="165" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#00a99b"/>
+                  <stop offset="100%" stop-color="#007a7a"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="mockup-live-label">Live preview</div>
+        </div>
+
+        <div class="mockup-panel">
+          <div>
+            <div class="panel-label">Wrap color</div>
+            <div class="color-swatches" id="swatches">
+              <div class="swatch active" style="background:#00D1C1" data-color="#00D1C1"></div>
+              <div class="swatch" style="background:#004F4F" data-color="#004F4F"></div>
+              <div class="swatch" style="background:#00B1F3" data-color="#00B1F3"></div>
+              <div class="swatch" style="background:#1A1C1E" data-color="#1A1C1E"></div>
+              <div class="swatch" style="background:#c0392b" data-color="#c0392b"></div>
+              <div class="swatch" style="background:#f39c12" data-color="#f39c12"></div>
+            </div>
+          </div>
+          <div>
+            <div class="panel-label">Finish</div>
+            <div class="finish-pills">
+              <span class="pill active">Gloss</span>
+              <span class="pill">Matte</span>
+              <span class="pill">Satin</span>
+              <span class="pill">Chrome</span>
+            </div>
+          </div>
+          <div>
+            <div class="panel-label">Coverage</div>
+            <div class="finish-pills">
+              <span class="pill active">Full wrap</span>
+              <span class="pill">Partial</span>
+              <span class="pill">Hood only</span>
+            </div>
+          </div>
+          <div class="price-display">
+            <div class="price-label">Estimated price</div>
+            <div class="price-value" id="mockPrice">$1,200</div>
+            <div class="price-note">Full wrap · Gloss finish · Sedan</div>
+          </div>
+          <button type="button" class="btn-quote">Request quote →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VALUE PROPS ─── -->
+<section class="value-section reveal" aria-labelledby="value-heading">
+  <div class="section-intro">
+    <span class="section-label">Why WrapOS</span>
+    <h2 id="value-heading" class="section-title">Built to convert,<br>not just collect forms</h2>
+  </div>
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-icon">👁️</div>
+      <h3>Real-time wrap previews</h3>
+      <p>Customers upload their vehicle and instantly see different colors and finishes applied. No guesswork, no back-and-forth.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⚡</div>
+      <h3>Dynamic quote engine</h3>
+      <p>Pricing updates in real time based on vehicle type, wrap coverage, and finish. Fully configurable to match your business.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔌</div>
+      <h3>One-line embed</h3>
+      <p>Add the widget to any website using a simple script. No complex setup or custom development required.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section id="how-it-works" aria-labelledby="hiw-heading">
+  <div class="hiw-inner reveal">
+    <div>
+      <span class="section-label">How it works</span>
+      <h2 id="hiw-heading" class="section-title">From setup to<br>live in minutes</h2>
+      <p class="section-body">No engineering team required. Configure your pricing, embed one script, and start capturing qualified leads the same day.</p>
+
+      <div class="hiw-steps" id="hiwSteps">
+        <div class="step-item active" data-step="0" onclick="setStep(0)">
+          <div class="step-num">01</div>
+          <div>
+            <h3>Create your widget</h3>
+            <p>Define pricing rules, vehicle types, and finishes from a simple dashboard.</p>
+          </div>
+        </div>
+        <div class="step-item" data-step="1" onclick="setStep(1)">
+          <div class="step-num">02</div>
+          <div>
+            <h3>Customize the experience</h3>
+            <p>Adjust colors, branding, and options to match your business.</p>
+          </div>
+        </div>
+        <div class="step-item" data-step="2" onclick="setStep(2)">
+          <div class="step-num">03</div>
+          <div>
+            <h3>Embed on your website</h3>
+            <p>Copy one script and paste it anywhere — WordPress, Webflow, Shopify, custom.</p>
+          </div>
+        </div>
+        <div class="step-item" data-step="3" onclick="setStep(3)">
+          <div class="step-num">04</div>
+          <div>
+            <h3>Start capturing leads</h3>
+            <p>Customers preview wraps and submit high-intent quote requests.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hiw-mobile-steps">
+        <div class="hiw-mobile-step">
+          <div class="hiw-mobile-step-num">01</div>
+          <div>
+            <h3 class="hiw-mobile-step-title">Create your widget</h3>
+            <p class="hiw-mobile-step-text">Define pricing rules, vehicle types, and finishes from a simple dashboard.</p>
+          </div>
+        </div>
+        <div class="hiw-mobile-step">
+          <div class="hiw-mobile-step-num">02</div>
+          <div>
+            <h3 class="hiw-mobile-step-title">Customize the experience</h3>
+            <p class="hiw-mobile-step-text">Adjust colors, branding, and options to match your business.</p>
+          </div>
+        </div>
+        <div class="hiw-mobile-step">
+          <div class="hiw-mobile-step-num">03</div>
+          <div>
+            <h3 class="hiw-mobile-step-title">Embed on your website</h3>
+            <p class="hiw-mobile-step-text">One script tag. Works everywhere.</p>
+          </div>
+        </div>
+        <div class="hiw-mobile-step">
+          <div class="hiw-mobile-step-num">04</div>
+          <div>
+            <h3 class="hiw-mobile-step-title">Start capturing leads</h3>
+            <p class="hiw-mobile-step-text">High-intent quote requests start rolling in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hiw-visual" id="hiwVisual">
+      <div class="hiw-step-display" id="hiwDisplay">
+        <span class="hiw-step-icon" id="stepIcon">🎛️</span>
+        <h3 id="stepTitle">Create your widget</h3>
+        <p id="stepDesc">Define pricing rules, vehicle types, and finishes from a simple dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section id="features" class="features-section reveal">
+  <span class="section-label">Features</span>
+  <h2 class="section-title">Everything you need<br>to sell wraps online</h2>
+  <div class="features-grid">
+    <div class="feat-card">
+      <span class="feat-icon">🖼️</span>
+      <h3>Image upload + BG removal</h3>
+      <p>Users upload their car photo. The system automatically removes the background and prepares it for customization.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🎨</span>
+      <h3>Live wrap customization</h3>
+      <p>Apply colors and finishes in real time using a fast, browser-based rendering system. No waiting, no reloads.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">✨</span>
+      <h3>Finish presets</h3>
+      <p>Matte, gloss, satin, chrome, and textured finishes with visual approximation built in.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🤖</span>
+      <h3>AI-enhanced previews</h3>
+      <p>Generate realistic renderings using AI to simulate materials, lighting, and reflections.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">💰</span>
+      <h3>Configurable pricing</h3>
+      <p>Set rules by vehicle type, coverage (full, partial, hood, roof), and finish. Easily adjustable at any time.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📋</span>
+      <h3>Lead capture with context</h3>
+      <p>Each submission includes customer details, selected options, pricing, and a visual preview.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">📊</span>
+      <h3>Quote dashboard</h3>
+      <p>View and manage all incoming requests from a centralized dashboard with status tracking.</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🚀</span>
+      <h3>Lightweight embed</h3>
+      <p>The widget loads independently and does not interfere with your existing website performance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY ─── -->
+<section class="reveal">
+  <div class="why-inner">
+    <div>
+      <span class="section-label">Why this works</span>
+      <h2 class="section-title">Show, don't explain</h2>
+      <p class="section-body">Traditional quote forms rely on users describing what they want. WrapOS lets them see it. Users arrive with curiosity and leave with a clear vision — and a quote request.</p>
+      <div class="why-stat-row">
+        <div class="why-stat">
+          <div class="why-stat-num">3×</div>
+          <div class="why-stat-label">More leads than static forms</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">~8m</div>
+          <div class="why-stat-label">Avg. time on configurator</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">72%</div>
+          <div class="why-stat-label">Quote request conversion</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">1 day</div>
+          <div class="why-stat-label">Average time to go live</div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="why-visual-top">
+        <div class="why-thumb why-thumb-before">
+          <span>📋</span>
+          <span class="why-caption before-cap">Before: Form</span>
+        </div>
+        <div class="why-thumb why-thumb-after">
+          <span>🚗</span>
+          <span class="why-caption after-cap">After: WrapOS</span>
+        </div>
+      </div>
+      <div class="why-visual-bottom">
+        <div class="why-progress-row">
+          <div class="why-progress">
+            <div class="wp-header"><span class="wp-label">Engagement rate</span><span class="wp-val" id="v1">0%</span></div>
+            <div class="wp-bar"><div class="wp-fill" id="f1" data-w="84"></div></div>
+          </div>
+          <div class="why-progress">
+            <div class="wp-header"><span class="wp-label">Lead quality score</span><span class="wp-val" id="v2">0%</span></div>
+            <div class="wp-bar"><div class="wp-fill" id="f2" data-w="91"></div></div>
+          </div>
+          <div class="why-progress">
+            <div class="wp-header"><span class="wp-label">Quote-to-close rate</span><span class="wp-val" id="v3">0%</span></div>
+            <div class="wp-bar"><div class="wp-fill" id="f3" data-w="67"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section id="pricing" class="reveal section-pricing" aria-labelledby="pricing-heading">
+  <div class="section-intro section-intro--pricing">
+    <span class="section-label">Pricing</span>
+    <h2 id="pricing-heading" class="section-title">Simple, flat pricing</h2>
+    <p class="section-sub">No commissions. No hidden fees. No surprises.</p>
+  </div>
+  <div class="pricing-inner">
+    <div class="pricing-card">
+      <div class="pricing-tag">WrapOS</div>
+      <div class="pricing-price"><sup>$</sup>100</div>
+      <div class="pricing-period">per month · cancel anytime</div>
+      <ul class="pricing-list">
+        <li>Unlimited quote requests</li>
+        <li>Unlimited wrap generations</li>
+        <li>Full widget customization</li>
+        <li>AI preview support</li>
+        <li>Pricing engine configuration</li>
+        <li>Lead dashboard</li>
+        <li>Works on any website platform</li>
+      </ul>
+      <button type="button" class="btn-primary pricing-cta">Start your widget →</button>
+      <div class="pricing-note">No credit card required to start</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq" class="faq-section reveal">
+  <span class="section-label">FAQ</span>
+  <h2 class="section-title">Frequently asked questions</h2>
+  <div class="faq-grid">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Do I need technical knowledge to use this?<span class="icon">+</span></div>
+      <div class="faq-a">No. Setup is done through a simple dashboard. Embedding only requires copying and pasting a single script tag into your site.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I control pricing?<span class="icon">+</span></div>
+      <div class="faq-a">Yes. All pricing logic is fully configurable. Set rates by vehicle type, wrap coverage area, and finish type — update anytime from your dashboard.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Does it work on my website?<span class="icon">+</span></div>
+      <div class="faq-a">Yes. WrapOS works on any platform that supports script embeds — WordPress, Webflow, Shopify, Squarespace, and custom-built sites.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can customers upload their own car?<span class="icon">+</span></div>
+      <div class="faq-a">Yes. Image upload and automatic background removal are built into the experience — no extra tools or steps needed.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How accurate are the previews?<span class="icon">+</span></div>
+      <div class="faq-a">Instant previews are fast and visually convincing for most customers. AI-enhanced mode improves realism further by simulating material properties, lighting, and reflections.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What happens after a quote is submitted?<span class="icon">+</span></div>
+      <div class="faq-a">You receive the full submission in your lead dashboard — including customer info, selected wrap options, estimated pricing, and a visual of the configured wrap.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta reveal">
+  <h2>Turn your website into<br>your best salesperson</h2>
+  <p>Let customers design, preview, and request their wrap — all in one place.</p>
+  <div class="final-ctas">
+    <button type="button" class="btn-primary final-cta-primary">Start building your widget</button>
+    <button type="button" class="btn-ghost final-cta-secondary">View demo</button>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="logo">Wrap<span>OS</span></div>
+  <p>© 2026 WrapOS. All rights reserved.</p>
+  <p class="footer-tagline">Built for wrap shops that want to grow.</p>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
